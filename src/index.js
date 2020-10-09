@@ -44,19 +44,24 @@ function generateBoard(sideLength) {
   // Lisätään rivit
   for (var i = 0; i < sideLength; i++) {
     board[i] = [];
-    newRow = document.createElement("tr");
+    newRow = document.createElement("div");
+    newRow.setAttribute("class", "row");
 
+    newCol = document.createElement("div");
+    newCol.setAttribute("class", "col s1");
     // Lisätään sarakkeet/solut
     for (var j = 0; j < sideLength; j++) {
       board[i][j] = undefined;
-      newCol = document.createElement("td");
+      newCol = document.createElement("div");
       newCol.setAttribute("id", i + "-" + j);
-      newCol.setAttribute("class", "cell");
+      newCol.setAttribute("class", "col s1 cell");
       newCol.onclick = function () {
         markTableCell(this);
       };
       newRow.appendChild(newCol);
     }
+    newCol = document.createElement("div");
+    newCol.setAttribute("class", "col s1");
 
     table.appendChild(newRow);
   }
