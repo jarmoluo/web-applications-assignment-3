@@ -46,22 +46,29 @@ function generateBoard(sideLength) {
     board[i] = [];
     newRow = document.createElement("div");
     newRow.setAttribute("class", "row");
+    //newRow.style.height = "60px";
+    //newRow.style.marginBottom = "0px";
 
+    // Lisätään reunasolu, jotka ei kuulu pelitauluun
     newCol = document.createElement("div");
-    newCol.setAttribute("class", "col s1");
+    newCol.setAttribute("class", "col s1 m3 l3");
+    newRow.appendChild(newCol);
+
     // Lisätään sarakkeet/solut
     for (var j = 0; j < sideLength; j++) {
       board[i][j] = undefined;
       newCol = document.createElement("div");
       newCol.setAttribute("id", i + "-" + j);
-      newCol.setAttribute("class", "col s1 cell");
+      newCol.setAttribute("class", "col s2 m1 l1 cell");
       newCol.onclick = function () {
         markTableCell(this);
       };
       newRow.appendChild(newCol);
     }
+    // Lisätään reunasolu, jotka ei kuulu pelitauluun
     newCol = document.createElement("div");
-    newCol.setAttribute("class", "col s1");
+    newCol.setAttribute("class", "col s1 m4 l4");
+    newRow.appendChild(newCol);
 
     table.appendChild(newRow);
   }
@@ -138,5 +145,4 @@ function initialize() {
   mark = "X";
   document.getElementById("turn").innerHTML =
     "Player " + activePlayer + " turn";
-  //startTimer();
 }

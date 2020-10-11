@@ -7,6 +7,10 @@ body {
   border: 1px solid black;
 }
 */
+.row {
+  margin-bottom: 0px;
+}
+
 .cell {
   /*
   width: 60px;
